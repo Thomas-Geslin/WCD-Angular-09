@@ -1,0 +1,45 @@
+<form (ngSubmit)="kittenForm.valid && addKitten()" [formGroup]="kittenForm" #myForm="ngForm" class="w-25">
+    <div class="mb-3">
+        <label for="name" class="me-1 form-label">Name :</label>
+        <input type="text" name="name" formControlName="name" class="form-control" />
+
+        <div *ngIf="myForm.submitted && kittenForm.controls.name.errors" class="mt-1 p-1 d-flex flex-column border border-danger rounded bg-danger-subtle">
+            <span *ngIf="kittenForm.controls.name.errors?.['required']">Ce champ est requis</span>
+            <span *ngIf="kittenForm.controls.name.errors?.['minlength']">Veuillez rentrer au moins 3 caractères</span>
+            <span *ngIf="kittenForm.controls.name.errors?.['pattern']">Veuillez rentrer uniquement des lettres</span>
+        </div>
+    </div>
+    
+
+    <div class="mb-3">
+        <label for="breed" class="me-1">Breed :</label>
+        <input type="text" name="breed" formControlName="breed" class="form-control" />
+
+        <div *ngIf="myForm.submitted && kittenForm.controls.breed.errors" class="mt-1 p-1 d-flex flex-column border border-danger rounded bg-danger-subtle">
+            <span *ngIf="kittenForm.controls.breed.errors?.['required']">Ce champ est requis</span>
+            <span *ngIf="kittenForm.controls.breed.errors?.['minlength']">Veuillez rentrer au moins 4 caractères</span>
+            <span *ngIf="kittenForm.controls.breed.errors?.['pattern']">Veuillez rentrer uniquement des lettres</span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="birth" class="me-1">Birth Date :</label>
+        <input type="date" name="birth" formControlName="birth" class="form-control" />
+
+        <div *ngIf="myForm.submitted && kittenForm.controls.birth.errors" class="mt-1 p-1 d-flex flex-column border border-danger rounded bg-danger-subtle">
+            <span *ngIf="kittenForm.controls.birth.errors?.['required']">Ce champ est requis</span>
+        </div>
+    </div>
+
+    <div>
+        <label for="photo" class="me-1">Photo (link) :</label>
+        <input type="text" name="photo" formControlName="photo" class="form-control" />
+
+        <div *ngIf="myForm.submitted && kittenForm.controls.photo.errors" class="mt-1 p-1 d-flex flex-column border border-danger rounded bg-danger-subtle">
+            <span *ngIf="kittenForm.controls.photo.errors?.['required']">Ce champ est requis</span>
+            <span *ngIf="kittenForm.controls.photo.errors?.['pattern']">Veuillez rentrer un lien valide</span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Add a Kitten !</button>
+</form>

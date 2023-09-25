@@ -1,0 +1,14 @@
+<aside class="p-5 bg-info-subtle vh-100">
+    <h2 class="mb-5 text-center">My Kittens :</h2>
+
+    <div>
+        <div *ngFor="let kitten of adoptedKittenList" class="text-center kittenContainer">
+            <img src="{{kitten.photo}}" class="kittenPicture rounded mb-2" />
+
+            <div class="border border-dark border-2 rounded kittenInfo">
+                <p class="mb-1">{{kitten.name}} ({{kitten.breed}})</p>
+                <p class="mb-1">{{kitten.birth}}</p>
+            </div>
+        </div>
+    </div>
+</aside>

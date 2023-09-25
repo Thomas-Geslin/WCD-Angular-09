@@ -1,0 +1,27 @@
+.kittenContainer {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.kittenContainer:hover {
+    cursor: pointer;
+}
+
+.kittenContainer:hover > .kittenInfo {
+    top: 100%;
+    
+}
+
+.kittenPicture {
+    width: 200px;
+    position: relative;
+    z-index: 2;
+}
+
+.kittenInfo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: .5s ease-in-out;
+}
